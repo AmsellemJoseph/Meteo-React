@@ -8,7 +8,7 @@ const Searching = ({ subSearch }) => {
     const searchCity = (city) => {
         setCity('');
         setCity(city);
-        console.log(ville);
+        // console.log(ville);
     }
 
     return (

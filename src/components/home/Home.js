@@ -6,7 +6,7 @@ const Home = ({city,subSearch})=>{
     if(ville!==city){
         setVille(city)
     }
-    console.log('La ville depuis home est '+city);
+    // console.log('La ville depuis home est '+city);
 
     return(
         <>

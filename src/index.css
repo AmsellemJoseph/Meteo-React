@@ -19,3 +19,9 @@ code {
   justify-content: center;
   align-items: center;
 }
+.yuyu{
+  display: flex;
+}
+.daily{
+  margin: 20px;
+}

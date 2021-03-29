@@ -1,15 +1,15 @@
-import React, {useRef,useEffect,useState} from 'react'
+import React from 'react'
 
-import { MapContainer, TileLayer,Marker,Popup} from 'react-leaflet'
+import { MapContainer, TileLayer} from 'react-leaflet'
 
-import {useMapEvents,useMapEvent} from 'react-leaflet';
-import Locate from "leaflet.locatecontrol";
+// import {useMapEvents} from 'react-leaflet';
+// import Locate from "leaflet.locatecontrol";
 
 
 
 // import {LatLngExpression} from 'leaflet'
 const Carte = (props) => {
-    const defaultPosition = {lat: props.lat, lng:props.lon};
+    // const defaultPosition = {lat: props.lat, lng:props.lon};
     // const lc = new Locate(defaultPosition);
     // lc.addTo()
     // console.log(coordonnes.lat);
@@ -41,25 +41,25 @@ const Carte = (props) => {
   //     })
   //     return null
   //   }
-  function LocationMarker() {
-    const [position, setPosition] = useState(null)
-    const map = useMapEvents({
-      locationfound() {
-          map.locate()
-        },
-      locationfound() {
-        setPosition(defaultPosition)
-        console.log(defaultPosition);
-        map.flyTo(defaultPosition, map.getZoom())
-      },
-    })
+  // function LocationMarker() {
+  //   const [position, setPosition] = useState(null)
+  //   const map = useMapEvents({
+  //     locationfound() {
+  //         map.locate()
+  //       },
+  //     locationfound() {
+  //       setPosition(defaultPosition)
+  //       console.log(defaultPosition);
+  //       map.flyTo(defaultPosition, map.getZoom())
+  //     },
+  //   })
   
-    return position === null ? null : (
-      <Marker position={position}>
-        <Popup>You are here</Popup>
-      </Marker>
-    )
-  }
+  //   return position === null ? null : (
+  //     <Marker position={position}>
+  //       <Popup>You are here</Popup>
+  //     </Marker>
+  //   )
+  // }
 
 
   // baselayerchange?: LayersControlEventHandlerFn;
