@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import React,{useState} from 'react'
+import ApiMeteo from './components/ApiMeteo'
+import NavBar from './components/components-ui/NavBar'
+import Search from './components/components-ui/Search'
+import Searching from './components/Searching'
+import Home from './components/home/Home'
+// import Weekly from './components/Weekly'
 
-function App() {
+
+
+const App =()=> {
+
+  const [ville,setCity] = useState('netanya');
+  const searchCity = ({city})=>{
+    setCity('');
+    console.log("La ville depuis la fonction search app est "+city);
+    setCity(city);
+    
+  }
+  console.log("la ville depuis app est "+ville);
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar/>
+      <Search subSearch={searchCity}/>
+      {/* <Searching/> */}
+          {/* <ApiMeteo city={city}/> */}
+          <Home city={ville}/>
+        {/* <Weekly/> */}
+      
     </div>
   );
 }
