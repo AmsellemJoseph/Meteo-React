@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Meteo from './Meteo'
 // import Carte from './Carte'
 import Weekly from './Weekly'
+import LogoTemp from './LogoTemp'
 
 
 const ApiMeteo = ({ city }) => {
@@ -118,12 +119,13 @@ const ApiMeteo = ({ city }) => {
 
     }, [villeTemp])
 
-    console.log(daily);
+    console.log(logoTemp);
     return (
         <div>
             <Meteo ville={ville.ville} pays={ville.pays} temp={temp.temp} />
             {/* <Carte lat={coord.lat} lon={coord.lon} /> */}
             <Weekly daily={daily}/>
+            <LogoTemp logo={logoTemp}/>
         </div>
     );
 

@@ -7,7 +7,7 @@ const Day = (props) => {
         <div className='daily'>
             <h3>{props.day}</h3>
             <p>Min: {props.min}°c</p>
-            <p>Max{props.max}°c</p>
+            <p>Max: {props.max}°c</p>
         </div>
     )
 }
