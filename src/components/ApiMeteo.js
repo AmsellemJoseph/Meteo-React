@@ -28,6 +28,9 @@ const ApiMeteo = ({ city }) => {
         setCity('');
         setCity(city);
     }
+    const [logoTemp,setLogo]=useState({
+        logoTemp:'',
+    });
     // console.log("La ville depuis ApiMeteo est " + villeTemp);
     const [temp, setTemp] = useState({})
     const [coord, setCoord] = useState({
@@ -64,10 +67,13 @@ const ApiMeteo = ({ city }) => {
 
             const res = await fetch(URL_COMPLETE)
             const response = await res.json()
-            console.log(response);
+            console.log(response.weather[0].icon);
             setVille({
                 ville:response.name,
                 pays:response.sys.country,
+            })
+            setLogo({
+                logoTemp:response.weather[0].icon
             })
             const BASE_URL2 = 'https://api.openweathermap.org/data/2.5/onecall?'
             // console.log(response.coord);
