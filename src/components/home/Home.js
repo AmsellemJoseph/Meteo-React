@@ -1,16 +1,15 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import ApiMeteo from '../ApiMeteo'
 
-const Home = ({city,subSearch})=>{
-    const [ville,setVille]=useState("netanya");
-    if(ville!==city){
+const Home = ({ city, subSearch }) => {
+    const [ville, setVille] = useState("netanya");
+    if (ville !== city) {
         setVille(city)
     }
-    // console.log('La ville depuis home est '+city);
 
-    return(
+    return (
         <>
-            <ApiMeteo city={city} subSearch={subSearch}/>  
+            <ApiMeteo city={city} subSearch={subSearch} />
         </>
     )
 }

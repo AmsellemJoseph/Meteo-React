@@ -19,29 +19,28 @@ import logo13n from "../assets/images/nuit/13n.svg"
 import logo50n from "../assets/images/nuit/50n.svg"
 
 
-const LogoTemp = ({logo})=>{
+const LogoTemp = ({ logo }) => {
 
-    // console.log(logo.logoTemp);
-    return(
+    return (
         <div>
-            {logo.logoTemp==="01d"?(<img src={logo01d} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="02d"?(<img src={logo02d} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="03d"?(<img src={logo03d} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="04d"?(<img src={logo04d} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="09d"?(<img src={logo09d} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="10d"?(<img src={logo10d} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="11d"?(<img src={logo11d} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="13d"?(<img src={logo13d} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="50d"?(<img src={logo50d} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="01n"?(<img src={logo01n} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="02n"?(<img src={logo02n} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="03n"?(<img src={logo03n} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="04n"?(<img src={logo04n} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="09n"?(<img src={logo09n} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="10n"?(<img src={logo10n} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="11n"?(<img src={logo11n} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="13n"?(<img src={logo13n} alt="Logo temperature"/>):null}
-            {logo.logoTemp==="50n"?(<img src={logo50n} alt="Logo temperature"/>):null}
+            {logo.logoTemp === "01d" ? (<img src={logo01d} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "02d" ? (<img src={logo02d} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "03d" ? (<img src={logo03d} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "04d" ? (<img src={logo04d} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "09d" ? (<img src={logo09d} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "10d" ? (<img src={logo10d} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "11d" ? (<img src={logo11d} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "13d" ? (<img src={logo13d} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "50d" ? (<img src={logo50d} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "01n" ? (<img src={logo01n} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "02n" ? (<img src={logo02n} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "03n" ? (<img src={logo03n} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "04n" ? (<img src={logo04n} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "09n" ? (<img src={logo09n} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "10n" ? (<img src={logo10n} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "11n" ? (<img src={logo11n} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "13n" ? (<img src={logo13n} alt="Logo temperature" />) : null}
+            {logo.logoTemp === "50n" ? (<img src={logo50n} alt="Logo temperature" />) : null}
         </div>
     )
 }
