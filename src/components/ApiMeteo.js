@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Meteo from './Meteo'
-// import Carte from './Carte'
+import Carte from './Carte'
 import Weekly from './Weekly'
 import LogoTemp from './LogoTemp'
 
@@ -68,7 +68,7 @@ const ApiMeteo = ({ city }) => {
 
             const res = await fetch(URL_COMPLETE)
             const response = await res.json()
-            console.log(response.weather[0].icon);
+            // console.log(response.weather[0].icon);
             setVille({
                 ville:response.name,
                 pays:response.sys.country,
@@ -82,7 +82,7 @@ const ApiMeteo = ({ city }) => {
                 lat: await response.coord.lat,
                 lon: await response.coord.lon
             });
-            setCoord(await response)
+            // setCoord(await response)
             const LAT = await response.coord.lat;
             const LON = await response.coord.lon;
             const EXCLUDE = 'minutely,hourly';
@@ -119,11 +119,11 @@ const ApiMeteo = ({ city }) => {
 
     }, [villeTemp])
 
-    console.log(logoTemp);
+    // console.log(logoTemp);
     return (
         <div>
             <Meteo ville={ville.ville} pays={ville.pays} temp={temp.temp} />
-            {/* <Carte lat={coord.lat} lon={coord.lon} /> */}
+            <Carte coord={coord} />
             <Weekly daily={daily}/>
             <LogoTemp logo={logoTemp}/>
         </div>

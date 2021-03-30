@@ -5,7 +5,7 @@ import Day from './Day'
 const Weekly = ({daily}) => {
     const week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     // const [dayTemp, setDaily] = useState([{daily}])
-    console.log(daily.min1)
+    // console.log(daily.min1)
 
     let date = new Date();
     let day = date.getDay();

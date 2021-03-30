@@ -21,7 +21,7 @@ import logo50n from "../assets/images/nuit/50n.svg"
 
 const LogoTemp = ({logo})=>{
 
-    console.log(logo.logoTemp);
+    // console.log(logo.logoTemp);
     return(
         <div>
             {logo.logoTemp==="01d"?(<img src={logo01d} alt="Logo temperature"/>):null}
