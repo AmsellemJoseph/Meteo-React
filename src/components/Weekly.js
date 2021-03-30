@@ -25,7 +25,7 @@ const Weekly = ({daily}) => {
             <Day day={weekday[4]} min={daily.min5} max={daily.max5}/>
             <Day day={weekday[5]} min={daily.min6} max={daily.max6}/>
             <Day day={weekday[6]} min={daily.min7} max={daily.max7}/>
-            {/* <Day day={weekday[0]} min={daily.min8} max={daily.max8}/> */}
+            <Day day={weekday[0]} min={daily.min8} max={daily.max8}/>
         </div>
     )
 
