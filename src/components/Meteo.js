@@ -9,7 +9,8 @@ const Meteo = (props) => {
         
         <div>
             <h1>{props.ville}</h1>
-            <h2>{props.temp}</h2>
+            <h3>{props.pays}</h3>
+            <h2>{props.temp}°c</h2>
         </div>
     )
 }

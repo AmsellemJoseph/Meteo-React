@@ -5,7 +5,7 @@ import Day from './Day'
 const Weekly = ({daily}) => {
     const week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     // const [dayTemp, setDaily] = useState([{daily}])
-    console.log(daily.day1)
+    console.log(daily.min1)
 
     let date = new Date();
     let day = date.getDay();
@@ -14,17 +14,18 @@ const Weekly = ({daily}) => {
     // console.log(props.daily[0]);
 
 
-    console.log(weekday);
+    // console.log(weekday);
 
     return (
         <div className='yuyu'>
-            <Day day={weekday[0]} tempDay={daily.day1}/>
-            <Day day={weekday[1]} tempDay={daily.day2}/>
-            <Day day={weekday[2]} tempDay={daily.day3}/>
-            <Day day={weekday[3]} tempDay={daily.day4}/>
-            <Day day={weekday[4]} tempDay={daily.day5}/>
-            <Day day={weekday[5]} tempDay={daily.day6}/>
-            <Day day={weekday[6]} tempDay={daily.day7}/>
+            <Day day={weekday[0]} min={daily.min1} max={daily.max1}/>
+            <Day day={weekday[1]} min={daily.min2} max={daily.max2}/>
+            <Day day={weekday[2]} min={daily.min3} max={daily.max3}/>
+            <Day day={weekday[3]} min={daily.min4} max={daily.max4}/>
+            <Day day={weekday[4]} min={daily.min5} max={daily.max5}/>
+            <Day day={weekday[5]} min={daily.min6} max={daily.max6}/>
+            <Day day={weekday[6]} min={daily.min7} max={daily.max7}/>
+            {/* <Day day={weekday[0]} min={daily.min8} max={daily.max8}/> */}
         </div>
     )
 

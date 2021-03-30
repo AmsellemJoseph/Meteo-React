@@ -25,7 +25,10 @@ const ApiMeteo = ({ city }) => {
         lat: '',
         lon: ''
     });
-    const [finalResponse,setFinal]=useState({});
+    const [ville,setVille]=useState({
+        ville:'',
+        pays:'',
+    });
     // const[city,setCity]=useState("paris")
     // console.log(props);
 
@@ -52,7 +55,11 @@ const ApiMeteo = ({ city }) => {
 
             const res = await fetch(URL_COMPLETE)
             const response = await res.json()
-            // console.log(response);
+            console.log(response);
+            setVille({
+                ville:response.name,
+                pays:response.sys.country,
+            })
             const BASE_URL2 = 'https://api.openweathermap.org/data/2.5/onecall?'
             // console.log(response.coord);
             setCoord({
@@ -90,8 +97,8 @@ const ApiMeteo = ({ city }) => {
     console.log(daily);
     return (
         <div>
-            <Meteo ville={villeTemp} temp={temp.temp} />
-            <Carte lat={coord.lat} lon={coord.lon} />
+            <Meteo ville={ville.ville} pays={ville.pays} temp={temp.temp} />
+            {/* <Carte lat={coord.lat} lon={coord.lon} /> */}
             <Weekly daily={daily}/>
         </div>
     );
