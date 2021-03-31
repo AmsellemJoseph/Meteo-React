@@ -25,3 +25,29 @@ code {
 .daily{
   margin: 20px;
 }
+
+.containerNav{
+
+}
+.navBar{
+  position: relative;
+  text-align: center;
+}
+.MuiTypography-root{
+  margin-left:200px!important ;
+  text-decoration: underline!important;
+  font-size: 25px!important;
+  color: #f1f1f1!important;
+  font-family: 'Varela Round'!important;
+  
+}
+.search{
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.MuiAppBar-colorPrimary{
+  background: #2e6ff2!important;
+
+}

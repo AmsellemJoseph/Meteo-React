@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
         padding: '2px 4px',
         display: 'flex',
         alignItems: 'center',
-        width: 400,
+        width: 180,
     },
     input: {
         marginLeft: theme.spacing(1),
@@ -49,8 +49,8 @@ export default function Search({ subSearch }) {
         <Paper component="form" className={classes.root} onSubmit={onSubmit}>
             <InputBase
                 className={classes.input}
-                placeholder="Search Google Maps"
-                inputProps={{ 'aria-label': 'search google maps' }}
+                placeholder="Search a city"
+                inputProps={{ 'aria-label': 'Search a city' }}
                 onChange={onChange}
             />
             <IconButton type="submit" className={classes.iconButton} aria-label="search" >

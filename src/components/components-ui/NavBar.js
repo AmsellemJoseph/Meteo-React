@@ -72,7 +72,7 @@ const NavBar = () => {
         <div className={classes.grow}>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography className={classes.title} variant="h6" noWrap>
+                    <Typography className={classes.title} id="weatherNav" variant="h6" noWrap>
                         Weather Forecast
           </Typography>
 

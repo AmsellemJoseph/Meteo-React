@@ -16,8 +16,14 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar />
-      <Search subSearch={searchCity} />
+      <div className='containerNav'>
+        <div className='navBar'>
+          <NavBar />
+        </div>
+        <div className='search'>
+          <Search subSearch={searchCity} />
+        </div>
+      </div>
       <Home city={ville} />
     </div>
   );

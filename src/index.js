@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'leaflet/dist/leaflet.css';
+import Font from './utility/Font'
 
 
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <Font/>
   </React.StrictMode>,
   document.getElementById('root')
 );

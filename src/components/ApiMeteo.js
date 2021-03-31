@@ -3,6 +3,7 @@ import Meteo from './Meteo'
 import Carte from './Carte'
 import Weekly from './Weekly'
 import LogoTemp from './LogoTemp'
+import CardMeteo from './components-ui/CardMeteo'
 
 
 const ApiMeteo = ({ city }) => {
@@ -113,8 +114,10 @@ const ApiMeteo = ({ city }) => {
 
     return (
         <div>
-            <Meteo ville={ville.ville} pays={ville.pays} temp={temp.temp} />
-            <Carte coord={coord} />
+            <CardMeteo ville={ville.ville} pays={ville.pays} temp={temp.temp} coord={coord}
+            />
+            {/* <Meteo ville={ville.ville} pays={ville.pays} temp={temp.temp} /> */}
+            {/* <Carte coord={coord} /> */}
             <Weekly daily={daily} />
             <LogoTemp logo={logoTemp} />
         </div>
