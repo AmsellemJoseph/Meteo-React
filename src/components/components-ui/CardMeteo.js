@@ -1,12 +1,13 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import Meteo from '../Meteo'
 import Carte from '../Carte'
+import Weekly from '../Weekly'
+import LogoTemp from '../LogoTemp'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 const useStyles = makeStyles({
   root: {
@@ -25,31 +26,35 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CardMeteo({ville,pays,temp,coord}) {
-  console.log(temp);
-const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+export default function CardMeteo({ ville, pays, temp, coord, daily, logo }) {
+  const [favorite,setFavorite]=useState({
+    isFavorite:false,
+  })
+
+
+  const classes = useStyles();
   const temperature = Math.trunc(temp);
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} id="containerCardMeteo">
       <CardContent>
-      <Meteo ville={ville} pays={pays} temp={temperature}  />
-      <Carte coord={coord}/>
-        <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
+        <div className='meteoCard'>
+          <Meteo ville={ville} pays={pays} temp={temperature} />
+        </div>
+        <div className='carteCard'>
+          <Carte coord={coord} />
+        </div>
+        <div className="weeklyCard">
+          <Weekly daily={daily} />
+        </div>
+        <div className="logoCard">
+          <LogoTemp logo={logo} />
+        </div>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+      <div className='favoriteCard'>
+        {favorite.isFavorite?(<FavoriteIcon style={{color:'red'}} onClick={()=>setFavorite({isFavorite:!favorite.isFavorite})}/>):<FavoriteBorderIcon  onClick={()=>setFavorite({isFavorite:!favorite.isFavorite})}/>}
+
+      </div>
     </Card>
   );
 }
+

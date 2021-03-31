@@ -6,7 +6,7 @@ const Font = ()=>{
     useEffect(() => {
         WebFont.load({
           google: {
-            families: ['Varela Round']
+            families: ['Varela Round','Nunito','Merriweather']
           }
         });
        }, []);

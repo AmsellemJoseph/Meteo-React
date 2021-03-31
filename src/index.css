@@ -1,12 +1,19 @@
-
+*,::before,::after{
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Nunito';
+
+}
+.cardMeteo{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  padding-top: 20px;
 }
 
 code {
@@ -23,12 +30,18 @@ code {
   display: flex;
 }
 .daily{
-  margin: 20px;
+  color: #f1f1f1;
+  padding:0  15px;
+  border: 1px solid #f1f1f1;
+}
+.daily h3, .daily p{
+  border-bottom: 1px solid #f1f1f1;
+}
+.daily p{
+  margin-top: -16px;
+  font-size: 16px;
 }
 
-.containerNav{
-
-}
 .navBar{
   position: relative;
   text-align: center;
@@ -38,7 +51,7 @@ code {
   text-decoration: underline!important;
   font-size: 25px!important;
   color: #f1f1f1!important;
-  font-family: 'Varela Round'!important;
+  font-family: 'Nunito'!important;
   
 }
 .search{
@@ -50,4 +63,71 @@ code {
 .MuiAppBar-colorPrimary{
   background: #2e6ff2!important;
 
+}
+
+.cardMeteo{
+  padding-top: 25px;
+  margin: auto;
+  text-align: center;
+  height: 600px;
+}
+
+#containerCardMeteo{
+  width: 800px;
+  position: relative;
+  background: #f1f1f1!important;
+}
+.meteoCard{
+  position: absolute;
+  top: -10px;
+  left: 5px;
+  color: #2e6ff2;
+}
+.meteoCard h1{
+  font-family: 'Merriweather';
+  font-size: 60px;
+  margin-top: 15px;
+  margin-left: 15px;
+  text-decoration: underline;
+}
+.meteoCard h3{
+  margin-top: -25px;
+}
+.meteoCard h2{
+  position: absolute;
+  font-size: 40px;
+  top: 0;
+  left: 350px;
+}
+
+.carteCard{
+  position: absolute;
+  top: 150px;
+  left: 25px;
+}
+.weeklyCard{
+ 
+  position: absolute;
+  background: #2e6ff2;
+  width: 750px;
+  height: auto;
+  height: auto;
+  top: 375px;
+  left: 25px;
+}
+.logoCard{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.logoCard img{
+  width: 150px;
+  height: 150px;
+}
+.favoriteCard{
+  color: #2e6ff2;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
