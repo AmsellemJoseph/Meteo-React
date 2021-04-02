@@ -25,10 +25,17 @@ const useStyles = makeStyles({
 });
 
 export default function SimpleCard(props) {
+    let nomVille = props.ville
+    console.log(nomVille)
+    const [villeFav, setvilleFav] = useState({
+        ville: nomVille,
+        isFavorite: false
+    })
+    // const [favorite,setFavorite]=useState(localStorage.favorite? JSON.parse(localStorage.favorite):[])
+    console.log(villeFav)
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
     const [temp, setTemp] = useState([])
-    let nomVille = props.ville
     console.log(nomVille);
     useEffect(() => {
         const fetchHistory = async () => {
@@ -49,14 +56,20 @@ export default function SimpleCard(props) {
         fetchHistory()
     }, [nomVille])
 
+    // const favoriteCity = (bool) => {
+    //     setVilleFav(!villeFav.isFavorite);
+    //     if(bool){
+    //         localStorage.setItem('favorite',[...favorite,villeFav]);
+    //     }
 
+    // }
     return (
         <Card className={classes.root} id="containerCardHistory">
             <CardContent>
                 <div className="cardHistoryContainer">
                     <p className="cardHistoryVille">{props.ville}</p>
                     <p className="cardHistoryTemp">{Math.trunc(temp)}°c</p>
-                    <FavoriteBorderIcon style={{ color: "green", fontSize: "30px" }} />
+                    {villeFav.isFavorite ? (<FavoriteIcon style={{ color: 'red' }} onClick={() => setvilleFav({ isFavorite: !villeFav.isFavorite }, console.log(villeFav.ville))} />) : <FavoriteBorderIcon onClick={() => setvilleFav({ isFavorite: !villeFav.isFavorite })} />}
                 </div>
             </CardContent>
         </Card>

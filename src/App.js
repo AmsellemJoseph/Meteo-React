@@ -10,7 +10,7 @@ import HistoryModal from './components/components-ui/HistoryModal'
 
 const App = () => {
 
-  const [ville, setCity] = useState('netanya');
+  const [ville, setCity] = useState('Netanya');
   const searchCity = ({ city }) => {
     setCity('');
     setCity(city);

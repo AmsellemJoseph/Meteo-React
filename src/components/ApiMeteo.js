@@ -88,7 +88,7 @@ const ApiMeteo = ({ city }) => {
 
             const res2 = await fetch(URL_COMPLETE2)
             const response2 = await res2.json();
-
+console.log(response2);
             setTemp(await response2.current)
             setDaily({
                 min1: response2.daily[0].temp.min,
@@ -129,7 +129,9 @@ const ApiMeteo = ({ city }) => {
     return (
         <div className='containerMeteo'>
             <div className='cardMeteo'>
+                <div className="historyModal">
                 <HistoryModal local={local}/>
+                </div>
                 <CardMeteo
                     ville={ville.ville}
                     pays={ville.pays}

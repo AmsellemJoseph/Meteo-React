@@ -34,13 +34,13 @@ export default function HistoryModal({local}) {
   };
 
   return (
-    <div>
+    <div >
       {/* <button type="button" onClick={handleOpen}> */}
       <div className="HistoryIcon">
       <HistoryIcon onClick={handleOpen} style={{fontSize:'50px', color:'#f1f1f1', cursor:'pointer'}}/>
       </div>
       {/* </button> */}
-      <Modal
+      <Modal className="historyModal"
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         className={classes.modal}
@@ -54,7 +54,7 @@ export default function HistoryModal({local}) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">History</h2>
+            <h2 id="transition-modal-title" style={{color:"#f1f1f1",textAlign:"center",fontSize:"40px",textDecoration:'underline'}}>History</h2>
             <History local={local}/>
           </div>
         </Fade>
