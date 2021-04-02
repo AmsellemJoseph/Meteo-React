@@ -1,9 +1,14 @@
+
 import React, { useState, useEffect } from 'react';
 import CardMeteo from './components-ui/CardMeteo'
+import History from './History'
+import HistoryModal from './components-ui/HistoryModal'
 
 
 const ApiMeteo = ({ city }) => {
 
+    const [local,setLocal]=useState(localStorage.test?JSON.parse(localStorage.test):[])
+    
     const [villeTemp, setCity] = useState({})
     const [daily, setDaily] = useState({
         min1: '',
@@ -39,6 +44,7 @@ const ApiMeteo = ({ city }) => {
         ville: '',
         pays: '',
     });
+
 
 
     useEffect(() => {
@@ -103,15 +109,27 @@ const ApiMeteo = ({ city }) => {
                 max8: response2.daily[7].temp.max,
             })
 
+            if(response.name.length>0){
+
+                const savingLocal = {
+                    id:local.length+1,
+                    ville:response.name
+                }
+
+                setLocal([...local,savingLocal])
+                localStorage.setItem('test',JSON.stringify([...local,savingLocal]))
+                }
+
         }
         fetchBase();
-
+        
     }, [villeTemp])
 
 
     return (
         <div className='containerMeteo'>
             <div className='cardMeteo'>
+                <HistoryModal local={local}/>
                 <CardMeteo
                     ville={ville.ville}
                     pays={ville.pays}
@@ -120,6 +138,12 @@ const ApiMeteo = ({ city }) => {
                     daily={daily}
                     logo={logoTemp}
                 />
+                {/* <History
+                    ville={historique.ville}
+                    lat={historique.lat}
+                    lon={historique.lon}
+                    idVille={historique.idVille}
+                /> */}
             </div>
         </div>
     );

@@ -3,6 +3,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import HistoryIcon from '@material-ui/icons/History';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -75,7 +76,9 @@ const NavBar = () => {
                     <Typography className={classes.title} id="weatherNav" variant="h6" noWrap>
                         Weather Forecast
           </Typography>
-
+          {/* <div className='HistoryIcon'>
+<HistoryIcon style={{fontSize:'50px'}}/>
+          </div> */}
                 </Toolbar>
             </AppBar>
         </div>

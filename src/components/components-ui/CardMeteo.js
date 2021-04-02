@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -6,8 +6,6 @@ import Meteo from '../Meteo'
 import Carte from '../Carte'
 import Weekly from '../Weekly'
 import LogoTemp from '../LogoTemp'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 
 const useStyles = makeStyles({
   root: {
@@ -27,9 +25,6 @@ const useStyles = makeStyles({
 });
 
 export default function CardMeteo({ ville, pays, temp, coord, daily, logo }) {
-  const [favorite,setFavorite]=useState({
-    isFavorite:false,
-  })
 
 
   const classes = useStyles();
@@ -50,10 +45,10 @@ export default function CardMeteo({ ville, pays, temp, coord, daily, logo }) {
           <LogoTemp logo={logo} />
         </div>
       </CardContent>
-      <div className='favoriteCard'>
+      {/* <div className='favoriteCard'>
         {favorite.isFavorite?(<FavoriteIcon style={{color:'red'}} onClick={()=>setFavorite({isFavorite:!favorite.isFavorite})}/>):<FavoriteBorderIcon  onClick={()=>setFavorite({isFavorite:!favorite.isFavorite})}/>}
 
-      </div>
+      </div> */}
     </Card>
   );
 }

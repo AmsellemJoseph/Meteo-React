@@ -131,3 +131,30 @@ code {
   bottom: 0;
   left: 0;
 }
+#containerCardHistory{
+  margin: 20px auto;
+  width: 550px;
+}
+.cardHistoryContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cardHistoryVille{
+  font-size: 30px;
+  margin: 0;
+}
+.cardHistoryTemp{
+  font-size: 40px;
+  margin: 0;
+}
+.historyList{
+  /* display: flex; */
+  /* flex-direction: column-reverse; */
+}
+.HistoryIcon{
+  position: absolute;
+  top: 5px;
+  right: 350px;
+
+}
