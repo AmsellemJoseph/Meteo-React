@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+
 
 const useStyles = makeStyles({
     root: {
@@ -26,17 +23,13 @@ const useStyles = makeStyles({
 
 export default function SimpleCard(props) {
     let nomVille = props.ville
-    console.log(nomVille)
-    const [villeFav, setvilleFav] = useState({
-        ville: nomVille,
-        isFavorite: false
-    })
+
     // const [favorite,setFavorite]=useState(localStorage.favorite? JSON.parse(localStorage.favorite):[])
-    console.log(villeFav)
+
     const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
+
     const [temp, setTemp] = useState([])
-    console.log(nomVille);
+
     useEffect(() => {
         const fetchHistory = async () => {
 
@@ -50,7 +43,7 @@ export default function SimpleCard(props) {
             const res = await fetch(URL_COMPLETE)
             const response = await res.json()
             // setTemp(response.main.temp)
-            console.log(response.main.temp);
+
             setTemp(response.main.temp)
         }
         fetchHistory()
@@ -69,7 +62,7 @@ export default function SimpleCard(props) {
                 <div className="cardHistoryContainer">
                     <p className="cardHistoryVille">{props.ville}</p>
                     <p className="cardHistoryTemp">{Math.trunc(temp)}°c</p>
-                    {villeFav.isFavorite ? (<FavoriteIcon style={{ color: 'red' }} onClick={() => setvilleFav({ isFavorite: !villeFav.isFavorite }, console.log(villeFav.ville))} />) : <FavoriteBorderIcon onClick={() => setvilleFav({ isFavorite: !villeFav.isFavorite })} />}
+                    {/* {villeFav.isFavorite ? (<FavoriteIcon style={{ color: 'red' }} onClick={() => setvilleFav({ isFavorite: !villeFav.isFavorite }, console.log(villeFav.ville))} />) : <FavoriteBorderIcon onClick={() => setvilleFav({ isFavorite: !villeFav.isFavorite })} />} */}
                 </div>
             </CardContent>
         </Card>

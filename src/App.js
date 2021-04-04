@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import NavBar from './components/components-ui/NavBar'
 import Search from './components/components-ui/Search'
 import Home from './components/home/Home'
-import History from "./components/History"
+
 import HistoryModal from './components/components-ui/HistoryModal'
 
 
@@ -28,7 +28,6 @@ const App = () => {
         </div>
       </div>
       <Home city={ville} />
-      {/* <History/> */}
     </div>
   );
 }

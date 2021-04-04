@@ -155,7 +155,7 @@ code {
 }
 .cardHistoryTemp{
   font-size: 40px;
-  margin: 0;
+  margin:-10px 0;
 }
 
 .HistoryIcon{
@@ -167,4 +167,8 @@ code {
 .makeStyles-paper-10{
   background: rgb(46,111,242)!important;
 background: linear-gradient(135deg, rgba(46,111,242,1) 0%, rgba(43,118,217,1) 25%, rgba(45,109,166,1) 50%, rgba(38,101,140,1) 75%, rgba(90,163,191,1) 100%)!important;
+height: 95vh!important;
+}
+.historyModal{
+  height: 80vh!important;
 }

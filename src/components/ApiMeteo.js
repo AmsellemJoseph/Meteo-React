@@ -1,14 +1,12 @@
-
 import React, { useState, useEffect } from 'react';
 import CardMeteo from './components-ui/CardMeteo'
-import History from './History'
 import HistoryModal from './components-ui/HistoryModal'
 
 
 const ApiMeteo = ({ city }) => {
 
     const [local,setLocal]=useState(localStorage.test?JSON.parse(localStorage.test):[])
-    
+    const [favorite,setFavorite]=useState({isFavorite:false});
     const [villeTemp, setCity] = useState({})
     const [daily, setDaily] = useState({
         min1: '',
@@ -88,7 +86,7 @@ const ApiMeteo = ({ city }) => {
 
             const res2 = await fetch(URL_COMPLETE2)
             const response2 = await res2.json();
-console.log(response2);
+
             setTemp(await response2.current)
             setDaily({
                 min1: response2.daily[0].temp.min,
@@ -120,17 +118,20 @@ console.log(response2);
                 localStorage.setItem('test',JSON.stringify([...local,savingLocal]))
                 }
 
+                
         }
+        setFavorite({isFavorite:false})
         fetchBase();
         
     }, [villeTemp])
+
 
 
     return (
         <div className='containerMeteo'>
             <div className='cardMeteo'>
                 <div className="historyModal">
-                <HistoryModal local={local}/>
+                <HistoryModal local={local} style={{height:'80vh!important'}}/>
                 </div>
                 <CardMeteo
                     ville={ville.ville}
@@ -139,6 +140,7 @@ console.log(response2);
                     coord={coord}
                     daily={daily}
                     logo={logoTemp}
+                    favorite={favorite.isFavorite}
                 />
                 {/* <History
                     ville={historique.ville}
