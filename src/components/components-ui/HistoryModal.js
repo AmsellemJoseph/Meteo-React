@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function HistoryModal({local}) {
-    // const [local,setLocal]=useState(localStorage.test?JSON.parse(localStorage.test):[])
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -35,11 +34,9 @@ export default function HistoryModal({local}) {
 
   return (
     <div >
-      {/* <button type="button" onClick={handleOpen}> */}
       <div className="HistoryIcon">
       <HistoryIcon onClick={handleOpen} style={{fontSize:'50px', color:'#f1f1f1', cursor:'pointer'}}/>
       </div>
-      {/* </button> */}
       <Modal className="historyModal"
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

@@ -135,40 +135,73 @@ code {
   color: #2e6ff2;
   cursor: pointer;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 5px;
+  right: 20px;
 }
 #containerCardHistory{
   margin: 20px auto;
-  width: 550px;
+  width: 570px;
 }
 .cardHistoryContainer{
+  padding: 0 35px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #2e6ff2;
 }
 .cardHistoryVille{
-  font-size: 30px;
+  font-size: 25px;
   margin: 0;
   color:#2e6ff2
 }
 .cardHistoryTemp{
-  font-size: 40px;
+  font-size: 25px;
   margin:-10px 0;
 }
 
 .HistoryIcon{
   position: absolute;
-  top: 5px;
+  top: 8px;
   right: 350px;
 
 }
-.makeStyles-paper-10{
+.makeStyles-paper-10,.makeStyles-paper-13{
   background: rgb(46,111,242)!important;
 background: linear-gradient(135deg, rgba(46,111,242,1) 0%, rgba(43,118,217,1) 25%, rgba(45,109,166,1) 50%, rgba(38,101,140,1) 75%, rgba(90,163,191,1) 100%)!important;
 height: 95vh!important;
 }
+.MuiAccordionSummary-content,.MuiAccordionSummary-root,.MuiAccordionSummary-root.Mui-expanded{
+  background-color: #2B76D9!important;
+}
+.MuiAccordionDetails-root{
+  background-color: #2D6DA6!important;
+}
+
 .historyModal{
   height: 80vh!important;
+}
+.containerMain{
+  display: flex;
+}
+.Favoriteicon{
+  position: absolute;
+  top: -4px;
+  right: 275px;
+  font-size: 50px;
+}
+.MuiCardContent-root:last-child{
+  height: 35px!important;
+}
+.MuiCardContent-root{
+  padding: 0!important;
+}
+.containerMain,.containerFav{
+  padding: 20px;
+}
+.accor{
+  width: 100%;  display: flex;
+  justify-content: space-between;
+  font-family: 'Nunito'!important;
+  font-size: 20px;
+  color: #f1f1f1;
 }

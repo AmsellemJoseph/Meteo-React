@@ -3,7 +3,8 @@ import CardMeteo from './components-ui/CardMeteo'
 import HistoryModal from './components-ui/HistoryModal'
 
 
-const ApiMeteo = ({ city }) => {
+const ApiMeteo = ({ city,onClick }) => {
+
 
     const [local,setLocal]=useState(localStorage.test?JSON.parse(localStorage.test):[])
     const [favorite,setFavorite]=useState({isFavorite:false});
@@ -113,7 +114,6 @@ const ApiMeteo = ({ city }) => {
                     id:local.length+1,
                     ville:response.name
                 }
-
                 setLocal([...local,savingLocal])
                 localStorage.setItem('test',JSON.stringify([...local,savingLocal]))
                 }
@@ -141,13 +141,8 @@ const ApiMeteo = ({ city }) => {
                     daily={daily}
                     logo={logoTemp}
                     favorite={favorite.isFavorite}
+                    onClick={onClick}
                 />
-                {/* <History
-                    ville={historique.ville}
-                    lat={historique.lat}
-                    lon={historique.lon}
-                    idVille={historique.idVille}
-                /> */}
             </div>
         </div>
     );

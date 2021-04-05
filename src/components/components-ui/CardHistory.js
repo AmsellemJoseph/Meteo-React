@@ -24,7 +24,6 @@ const useStyles = makeStyles({
 export default function SimpleCard(props) {
     let nomVille = props.ville
 
-    // const [favorite,setFavorite]=useState(localStorage.favorite? JSON.parse(localStorage.favorite):[])
 
     const classes = useStyles();
 
@@ -42,27 +41,19 @@ export default function SimpleCard(props) {
 
             const res = await fetch(URL_COMPLETE)
             const response = await res.json()
-            // setTemp(response.main.temp)
+
 
             setTemp(response.main.temp)
         }
         fetchHistory()
     }, [nomVille])
 
-    // const favoriteCity = (bool) => {
-    //     setVilleFav(!villeFav.isFavorite);
-    //     if(bool){
-    //         localStorage.setItem('favorite',[...favorite,villeFav]);
-    //     }
-
-    // }
     return (
         <Card className={classes.root} id="containerCardHistory">
             <CardContent>
                 <div className="cardHistoryContainer">
                     <p className="cardHistoryVille">{props.ville}</p>
                     <p className="cardHistoryTemp">{Math.trunc(temp)}°c</p>
-                    {/* {villeFav.isFavorite ? (<FavoriteIcon style={{ color: 'red' }} onClick={() => setvilleFav({ isFavorite: !villeFav.isFavorite }, console.log(villeFav.ville))} />) : <FavoriteBorderIcon onClick={() => setvilleFav({ isFavorite: !villeFav.isFavorite })} />} */}
                 </div>
             </CardContent>
         </Card>

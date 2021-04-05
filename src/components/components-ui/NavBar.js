@@ -75,9 +75,6 @@ const NavBar = () => {
                     <Typography className={classes.title} id="weatherNav" variant="h6" noWrap>
                         Weather Forecast
           </Typography>
-          {/* <div className='HistoryIcon'>
-<HistoryIcon style={{fontSize:'50px'}}/>
-          </div> */}
                 </Toolbar>
             </AppBar>
         </div>

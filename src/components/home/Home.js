@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ApiMeteo from '../ApiMeteo'
 
-const Home = ({ city, subSearch }) => {
+const Home = ({ city, subSearch,onClick }) => {
     const [ville, setVille] = useState("netanya");
     if (ville !== city) {
         setVille(city)
@@ -9,7 +9,7 @@ const Home = ({ city, subSearch }) => {
 
     return (
         <>
-            <ApiMeteo city={city} subSearch={subSearch} />
+            <ApiMeteo city={city} subSearch={subSearch} onClick={onClick}/>
         </>
     )
 }

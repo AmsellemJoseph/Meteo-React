@@ -26,10 +26,10 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CardMeteo({ ville, pays, temp, coord, daily, logo }) {
+export default function CardMeteo({ ville, pays, temp, coord, daily, logo,onClick }) {
 
   const [thisVilleFavorite, setThisFavorite] = useState(localStorage.favorite ? JSON.parse(localStorage.favorite) : [])
-  // const city = ville;
+  const [iden,setIden]=useState({iden:thisVilleFavorite.length+1})
   const [fav, setFav] = useState({ isFavorite: false });
   const [flag, setFlag] = useState(false)
   useEffect(() => {
@@ -39,10 +39,12 @@ export default function CardMeteo({ ville, pays, temp, coord, daily, logo }) {
     }
     liked()
   }, [ville])
+
   useEffect(() => {
     const favo = async () => {
       setThisFavorite(localStorage.favorite ? JSON.parse(localStorage.favorite) : [])
-      const villeF = { id: thisVilleFavorite.length + 1, ville: ville }
+      setIden({iden:thisVilleFavorite.length+1})
+      const villeF = { id: thisVilleFavorite.length+1, ville: ville }
       if (fav.isFavorite) {
         setFlag(true)
         setThisFavorite(localStorage.favorite ? JSON.parse(localStorage.favorite) : [])
@@ -50,8 +52,9 @@ export default function CardMeteo({ ville, pays, temp, coord, daily, logo }) {
 
       }
       else if (!fav.isFavorite && flag) {
+        setFlag(false)
         setThisFavorite(localStorage.favorite ? JSON.parse(localStorage.favorite) : [])
-        setThisFavorite(thisVilleFavorite.slice(0, thisVilleFavorite.length - 1))
+        setThisFavorite(thisVilleFavorite.slice(0, thisVilleFavorite.length))
         localStorage.setItem('favorite', JSON.stringify([...thisVilleFavorite]))
 
       }
@@ -59,6 +62,10 @@ export default function CardMeteo({ ville, pays, temp, coord, daily, logo }) {
     favo()
   }, [fav.isFavorite])
 
+  const tentative = ()=>{
+    onClick();
+    setFav({ isFavorite: !fav.isFavorite })
+  }
 
   const classes = useStyles();
   const temperature = Math.trunc(temp);
@@ -79,7 +86,7 @@ export default function CardMeteo({ ville, pays, temp, coord, daily, logo }) {
         </div>
       </CardContent>
       <div className='favoriteCard'>
-        {fav.isFavorite ? (<FavoriteIcon style={{ color: 'red' }} onClick={() => setFav({ isFavorite: !fav.isFavorite })} />) : <FavoriteBorderIcon onClick={() => setFav({ isFavorite: !fav.isFavorite })} />}
+        {fav.isFavorite ? (<FavoriteIcon style={{ color: 'red',fontSize:'30px' }} onClick={tentative} />) : <FavoriteBorderIcon style={{fontSize:'30px'}} onClick={tentative} />}
 
       </div>
     </Card>
