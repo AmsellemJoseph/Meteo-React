@@ -5,7 +5,7 @@ import HistoryModal from './components-ui/HistoryModal'
 
 const ApiMeteo = ({ city,onClick }) => {
 
-
+    
     const [local,setLocal]=useState(localStorage.test?JSON.parse(localStorage.test):[])
     const [favorite,setFavorite]=useState({isFavorite:false});
     const [villeTemp, setCity] = useState({})

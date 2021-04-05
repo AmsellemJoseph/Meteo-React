@@ -27,6 +27,14 @@ const useStyles = makeStyles({
 });
 
 export default function CardMeteo({ ville, pays, temp, coord, daily, logo,onClick }) {
+  let date = new Date()
+    const format = {
+        weekday : "short",
+        day : "numeric",
+        month : "long",
+        year : "2-digit",
+    }
+    console.log(date.toLocaleDateString('en',format));
 
   const [thisVilleFavorite, setThisFavorite] = useState(localStorage.favorite ? JSON.parse(localStorage.favorite) : [])
   const [iden,setIden]=useState({iden:thisVilleFavorite.length+1})
@@ -72,6 +80,9 @@ export default function CardMeteo({ ville, pays, temp, coord, daily, logo,onClic
   return (
     <Card className={classes.root} id="containerCardMeteo">
       <CardContent>
+        <div className='date'>
+          <p>{date.toLocaleDateString('en',format)}</p>
+        </div>
         <div className='meteoCard'>
           <Meteo ville={ville} pays={pays} temp={temperature} />
         </div>
