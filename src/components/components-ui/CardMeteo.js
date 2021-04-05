@@ -9,8 +9,18 @@ import LogoTemp from '../LogoTemp'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Date from '../DateDay'
+import Tooltip from '@material-ui/core/Tooltip';
+import Fab from '@material-ui/core/Fab';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+  fab: {
+    margin: theme.spacing(2),
+  },
+  absolute: {
+    position: 'absolute',
+    bottom: theme.spacing(2),
+    right: theme.spacing(3),
+  },
   root: {
     minWidth: 275,
   },
@@ -25,12 +35,12 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
-});
+}));
 
-export default function CardMeteo({ ville, pays, temp, coord, daily, logo,onClick }) {
+export default function CardMeteo({ ville, pays, temp, coord, daily, logo, onClick }) {
 
   const [thisVilleFavorite, setThisFavorite] = useState(localStorage.favorite ? JSON.parse(localStorage.favorite) : [])
-  const [iden,setIden]=useState({iden:thisVilleFavorite.length+1})
+  const [iden, setIden] = useState({ iden: thisVilleFavorite.length + 1 })
   const [fav, setFav] = useState({ isFavorite: false });
   const [flag, setFlag] = useState(false)
   useEffect(() => {
@@ -44,8 +54,8 @@ export default function CardMeteo({ ville, pays, temp, coord, daily, logo,onClic
   useEffect(() => {
     const favo = async () => {
       setThisFavorite(localStorage.favorite ? JSON.parse(localStorage.favorite) : [])
-      setIden({iden:thisVilleFavorite.length+1})
-      const villeF = { id: thisVilleFavorite.length+1, ville: ville }
+      setIden({ iden: thisVilleFavorite.length + 1 })
+      const villeF = { id: thisVilleFavorite.length + 1, ville: ville }
       if (fav.isFavorite) {
         setFlag(true)
         setThisFavorite(localStorage.favorite ? JSON.parse(localStorage.favorite) : [])
@@ -63,7 +73,7 @@ export default function CardMeteo({ ville, pays, temp, coord, daily, logo,onClic
     favo()
   }, [fav.isFavorite])
 
-  const tentative = ()=>{
+  const tentative = () => {
     onClick();
     setFav({ isFavorite: !fav.isFavorite })
   }
@@ -90,7 +100,7 @@ export default function CardMeteo({ ville, pays, temp, coord, daily, logo,onClic
         </div>
       </CardContent>
       <div className='favoriteCard'>
-        {fav.isFavorite ? (<FavoriteIcon style={{ color: 'red',fontSize:'30px' }} onClick={tentative} />) : <FavoriteBorderIcon style={{fontSize:'30px'}} onClick={tentative} />}
+        {fav.isFavorite ? (<Tooltip arrow placement="left" id="rem" title="Remove" aria-label="Remove"><Fab color="primary" id='remove' className={classes.fab}><FavoriteIcon style={{ color: 'red', fontSize: '30px' }} onClick={tentative} /></Fab></Tooltip>) : <Tooltip arrow placement="left" title="Add" aria-label="add"><Fab color="primary" id="add" className={classes.fab}><FavoriteBorderIcon style={{ fontSize: '30px' }} onClick={tentative} /></Fab></Tooltip>}
 
       </div>
     </Card>

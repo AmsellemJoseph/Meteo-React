@@ -3,11 +3,11 @@ import CardMeteo from './components-ui/CardMeteo'
 import HistoryModal from './components-ui/HistoryModal'
 
 
-const ApiMeteo = ({ city,onClick }) => {
+const ApiMeteo = ({ city, onClick }) => {
 
-    
-    const [local,setLocal]=useState(localStorage.test?JSON.parse(localStorage.test):[])
-    const [favorite,setFavorite]=useState({isFavorite:false});
+
+    const [local, setLocal] = useState(localStorage.history ? JSON.parse(localStorage.history) : [])
+    const [favorite, setFavorite] = useState({ isFavorite: false });
     const [villeTemp, setCity] = useState({})
     const [daily, setDaily] = useState({
         min1: '',
@@ -108,21 +108,21 @@ const ApiMeteo = ({ city,onClick }) => {
                 max8: response2.daily[7].temp.max,
             })
 
-            if(response.name.length>0){
+            if (response.name.length > 0) {
 
                 const savingLocal = {
-                    id:local.length+1,
-                    ville:response.name
+                    id: local.length + 1,
+                    ville: response.name
                 }
-                setLocal([...local,savingLocal])
-                localStorage.setItem('test',JSON.stringify([...local,savingLocal]))
-                }
+                setLocal([...local, savingLocal])
+                localStorage.setItem('history', JSON.stringify([...local, savingLocal]))
+            }
 
-                
+
         }
-        setFavorite({isFavorite:false})
+        setFavorite({ isFavorite: false })
         fetchBase();
-        
+
     }, [villeTemp])
 
 
@@ -131,7 +131,7 @@ const ApiMeteo = ({ city,onClick }) => {
         <div className='containerMeteo'>
             <div className='cardMeteo'>
                 <div className="historyModal">
-                <HistoryModal local={local} style={{height:'80vh!important'}}/>
+                    <HistoryModal local={local} style={{ height: '80vh!important' }} />
                 </div>
                 <CardMeteo
                     ville={ville.ville}

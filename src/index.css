@@ -141,8 +141,9 @@ code {
   color: #2e6ff2;
   cursor: pointer;
   position: absolute;
-  bottom: 5px;
-  right: 20px;
+  bottom: -15px;
+  right: -15px;
+
 }
 #containerCardHistory{
   margin: 20px auto;
@@ -223,4 +224,15 @@ height: 95vh!important;
 .WithStyles\(ForwardRef\(Badge\)\)-badge-14{
   color: #f1f1f1!important;
   background-color: #5AA3BF!important;
+}
+
+.MuiFab-root{
+  width: 40px!important;
+  height: 40px!important;
+}
+#add{
+  background-color: #26658C!important;
+}
+#remove{
+  background-color: #f1f1f1!important;
 }

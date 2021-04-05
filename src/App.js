@@ -9,10 +9,11 @@ import Badge from '@material-ui/core/Badge';
 import { makeStyles } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert from '@material-ui/lab/Alert';
 import { Alert } from '@material-ui/lab';
 
+
 const useStyles = makeStyles((theme) => ({
+
   title: {
     flexGrow: 1,
   },
@@ -57,6 +58,10 @@ const App = () => {
   const [tailleFav, setTaillefav] = useState(localStorage.favorite ? JSON.parse(localStorage.favorite) : [])
   const [flag, setFlag] = useState(false);
   useEffect(() => {
+    setFlag(false)
+    setFavorite({ iseFavorite: false })
+  }, [ville])
+  useEffect(() => {
     setTaillefav(localStorage.favorite ? JSON.parse(localStorage.favorite) : [])
     if (favorite.isFavorite) {
       handleClick()
@@ -82,8 +87,6 @@ const App = () => {
     setOpen(false);
   };
 
-
-  console.log(tailleFav);
 
   const setFavori = () => {
     setFav({ isFavorite: !fav.isFavorite })
@@ -115,7 +118,8 @@ const App = () => {
           </Snackbar>
           <div className="Favoriteicon">
             <StyledBadge badgeContent={tailleFav.length} color="primary">
-              {fav.isFavorite ? <FavoriteIcon style={{ color: '#f1f1f1', fontSize: '50px', cursor: 'pointer' }} onClick={setFavori} /> : <FavoriteIcon style={{ color: '#f1f1f1', fontSize: '50px', cursor: 'pointer' }} onClick={setFavori} />}
+              {fav.isFavorite ? <FavoriteIcon style={{ color: '#f1f1f1', fontSize: '50px', cursor: 'pointer' }} onClick={setFavori} /> :
+                (<FavoriteIcon style={{ color: '#f1f1f1', fontSize: '50px', cursor: 'pointer' }} onClick={setFavori} />)}
             </StyledBadge>
           </div>
         </div>

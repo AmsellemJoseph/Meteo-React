@@ -1,19 +1,19 @@
 import React from 'react'
 
-const DateDay = ()=>{
+const DateDay = () => {
 
     let date = new Date()
     const format = {
-        weekday : "short",
-        day : "numeric",
-        month : "long",
-        year : "2-digit",
+        weekday: "short",
+        day: "numeric",
+        month: "long",
+        year: "2-digit",
     }
-    console.log(date.toLocaleDateString('en',format));
+    console.log(date.toLocaleDateString('en', format));
 
-    return(
+    return (
         <div>
-            <p>{date.toLocaleDateString('en',format)}</p>
+            <p>{date.toLocaleDateString('en', format)}</p>
         </div>
     )
 }

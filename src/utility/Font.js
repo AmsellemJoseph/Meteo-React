@@ -1,21 +1,21 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import WebFont from 'webfontloader';
 
-const Font = ()=>{
+const Font = () => {
 
-    useEffect(() => {
-        WebFont.load({
-          google: {
-            families: ['Varela Round','Nunito','Merriweather']
-          }
-        });
-       }, []);
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ['Varela Round', 'Nunito', 'Merriweather']
+      }
+    });
+  }, []);
 
-    return(
-        <div>
+  return (
+    <div>
 
-        </div>
-    )
+    </div>
+  )
 }
 
 export default Font
