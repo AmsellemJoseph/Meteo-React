@@ -8,6 +8,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import Badge from '@material-ui/core/Badge';
 import { makeStyles } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+import { Alert } from '@material-ui/lab';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -38,6 +41,8 @@ const StyledBadge = withStyles((theme) => ({
 
 const App = () => {
 
+
+
   const classes = useStyles();
   const [ville, setCity] = useState('Netanya');
   const searchCity = ({ city }) => {
@@ -50,15 +55,42 @@ const App = () => {
     setFavorite({ isFavorite: !favorite.isFavorite })
   }
   const [tailleFav, setTaillefav] = useState(localStorage.favorite ? JSON.parse(localStorage.favorite) : [])
-
+  const [flag, setFlag] = useState(false);
   useEffect(() => {
     setTaillefav(localStorage.favorite ? JSON.parse(localStorage.favorite) : [])
+    if (favorite.isFavorite) {
+      handleClick()
+      setFlag(true)
+    } else if (!favorite.isFavorite && flag) {
+      handleClick()
+    }
+
 
   }, [favorite])
 
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
 
   console.log(tailleFav);
+
+  const setFavori = () => {
+    setFav({ isFavorite: !fav.isFavorite })
+    if (fav.isFavorite) {
+      handleClick()
+    }
+  }
 
   return (
     <div className="App">
@@ -66,9 +98,24 @@ const App = () => {
         <div className='navBar'>
           <NavBar />
           <HistoryModal />
+          <Snackbar
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'right',
+            }}
+            open={open}
+            autoHideDuration={1000}
+            onClose={handleClose}
+            message="Added to your favorites">
+            {favorite.isFavorite && flag ? (<Alert onClose={handleClose} severity="info">
+              Added to your favorites
+            </Alert>) : (<Alert onClose={handleClose} severity="info">
+              Deleted from your favorites
+            </Alert>)}
+          </Snackbar>
           <div className="Favoriteicon">
             <StyledBadge badgeContent={tailleFav.length} color="primary">
-              {fav.isFavorite ? <FavoriteIcon style={{ color: '#f1f1f1', fontSize: '50px', cursor: 'pointer' }} onClick={() => setFav({ isFavorite: !fav.isFavorite })} /> : <FavoriteIcon style={{ color: '#f1f1f1', fontSize: '50px', cursor: 'pointer' }} onClick={() => setFav({ isFavorite: !fav.isFavorite })} />}
+              {fav.isFavorite ? <FavoriteIcon style={{ color: '#f1f1f1', fontSize: '50px', cursor: 'pointer' }} onClick={setFavori} /> : <FavoriteIcon style={{ color: '#f1f1f1', fontSize: '50px', cursor: 'pointer' }} onClick={setFavori} />}
             </StyledBadge>
           </div>
         </div>

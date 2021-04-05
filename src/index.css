@@ -7,11 +7,17 @@ body {
   font-family: 'Nunito';
 
 }
-
-.App{
+html{
   height: 100vh;
   background: rgb(46,111,242);
 background: linear-gradient(135deg, rgba(46,111,242,1) 0%, rgba(43,118,217,1) 25%, rgba(45,109,166,1) 50%, rgba(38,101,140,1) 75%, rgba(90,163,191,1) 100%);
+}
+
+.App{
+  height: 100%;
+  background: rgb(46,111,242);
+background: linear-gradient(135deg, rgba(46,111,242,1) 0%, rgba(43,118,217,1) 25%, rgba(45,109,166,1) 50%, rgba(38,101,140,1) 75%, rgba(90,163,191,1) 100%);
+
 }
 
 .cardMeteo{
