@@ -90,9 +90,7 @@ const App = () => {
 
   const setFavori = () => {
     setFav({ isFavorite: !fav.isFavorite })
-    if (fav.isFavorite) {
-      handleClick()
-    }
+
   }
 
   return (
