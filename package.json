@@ -11,10 +11,12 @@
     "@testing-library/user-event": "^12.8.3",
     "leaflet": "^1.7.1",
     "leaflet.locatecontrol": "^0.73.0",
+    "nvm": "^0.0.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-leaflet": "^3.1.0",
     "react-scripts": "4.0.3",
+    "serve": "^11.3.2",
     "web-vitals": "^1.1.1",
     "webfontloader": "^1.6.28"
   },
